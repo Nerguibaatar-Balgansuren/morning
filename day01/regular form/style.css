@@ -1,0 +1,48 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form button {
+    margin-left: 20%;
+    width: fit-content
+}
+
+form label {
+    width: 30%;
+    text-align: right;
+    margin-right: 10px;
+    align-self: center;
+}
+
+form p{
+    width: 30%;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.rows{
+    display: flex;
+
+}
+
+#form {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#studentyes {
+    text-align: left;
+    margin-left: 5px;
+}
+
+#comment {
+    align-self: flex-end;
+}
+
+#hiform {
+    position: absolute;
+    top: -17px;
+    left: 20px;
+    background: white;
+}

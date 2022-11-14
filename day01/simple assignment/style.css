@@ -1,0 +1,28 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form button {
+    margin-left: 20%;
+    width: fit-content
+}
+
+form label {
+    width: 20%;
+    text-align: right;
+    margin-right: 2px;
+
+}
+
+.rows{
+    display: flex;
+
+}
+
+#form {
+    width: fit-content;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 10px;
+    padding: 20px;
+}
