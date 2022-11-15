@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../simple assignment"
+		},
+		{
+			"path": "."
+		},
+		{
+			"name": "morning",
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "regular form"
+	}
+}
