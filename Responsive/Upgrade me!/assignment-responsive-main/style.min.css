@@ -119,6 +119,16 @@ footer a {
     width: 170px;
 }
 
+@media (max-width: 1200px) {
+    .row {
+        display: flex;
+        
+    }
+    .row>* {
+        width: 50%;
+    }
+}
+
 @media (max-width: 576px) {
     .row {
         display: block;
@@ -130,12 +140,3 @@ footer a {
 
 }
 
-@media (max-width: 1200px) {
-    .row {
-        display: inline-block;
-        
-    }
-    .row>* {
-        width: 50%;
-    }
-}
