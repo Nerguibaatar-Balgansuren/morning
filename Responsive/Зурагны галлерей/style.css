@@ -1,0 +1,60 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+body {
+    
+}
+
+.cover {
+    background-color: rgb(207, 95, 83);
+    width: 100%;
+    object-fit: cover;
+    max-height: 400px;
+    position: relative;
+    
+}
+
+.story {
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    color: white;
+
+}
+.cover img {
+    mix-blend-mode: hard-light;
+    object-fit: cover;
+    max-height: 400px;
+    width: 100%;
+    
+    
+}
+
+main {
+    font-family: 'Great Vibes', cursive;
+    font-size: x-large;
+}
+
+.gallery {
+    display: flex;
+}
+
+.gallery img {
+    
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 992px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}
+
+@media screen and (min-width: 1350px) {
+
+}

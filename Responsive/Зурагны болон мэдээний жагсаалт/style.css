@@ -1,0 +1,63 @@
+.slider {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    gap: 30px;
+}
+
+.slider img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.row {
+    display: flex;
+    gap: 30px;
+    margin: 15px;
+}
+
+.row img {
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    width: 20%;
+}
+
+aside {
+    
+    background-color: rgb(209, 209, 209);
+    padding: 20px;
+    border-radius: 20px;
+    height: fit-content;
+}
+
+@media only screen and (min-width: 340px) {
+    .slider img{
+        width: 100%
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+    .slider img{
+        width: 30%
+    }
+    
+}
+
+@media only screen and (min-width: 1024px) {
+    .slider img{
+        flex-wrap: nowrap;
+        width: 14%;
+    }
+
+    main {
+        display: flex;
+    }
+
+    aside {
+        width: 30%;
+    }
+    
+}

@@ -137,6 +137,21 @@ footer a {
     .row>* {
         width: 100%;
     }
+    header ul li a {
+        color: #fff;
+        text-decoration: none;
+        display: none;
+    }
+    
+    header ul li.bars{
+        display: flex;
+        width: 25px;
+    }
+    
+    header ul li.bars a{
+        display: flex;
+        width: 25px;
+    }
 
 }
 
