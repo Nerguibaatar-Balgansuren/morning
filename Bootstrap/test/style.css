@@ -1,0 +1,31 @@
+
+.container {
+    width: 800px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.box {
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.row p {
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.alert {
+    background-color: rgb(212, 212, 212);
+    border-radius: 5px;
+}
+
+button {
+
+}
