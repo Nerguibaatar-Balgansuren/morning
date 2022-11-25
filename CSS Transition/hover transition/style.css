@@ -1,0 +1,22 @@
+#one {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    transition: width 2s;
+}
+
+#two {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    transition: width 2s;
+}
+
+#one:active {
+
+    width: 1000px;
+}
+
+#two:hover {
+    width: 1000px;
+}
