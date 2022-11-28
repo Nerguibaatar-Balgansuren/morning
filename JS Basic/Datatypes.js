@@ -1,0 +1,5 @@
+console.log(typeof number1)
+console.log(typeof string1)
+console.log(typeof bool1)
+console.log(typeof undefined1)
+console.log(typeof null1)
