@@ -29,6 +29,6 @@ function removeSelf(params) {
 
 doButton.addEventListener("click", ()=>{body.style = "background-color: green"});
 
-doButton.addEventListener("click", ()=>{.selected.})
+doButton.addEventListener("click", ()=>{option[].selected.removeChild()})
 
 console.log(doButton);
