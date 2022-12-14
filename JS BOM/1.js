@@ -1,17 +1,17 @@
-let menus = [
+menus = [
     {id:1, name:"home", href:""},
     {id:2, name:"contacts", href:""}
 ];
 
-let ulEl = document.createElement("ul");
+ulEl = document.createElement("ul");
 
-let mainEl = document.getElementById("main");
+mainEl = document.getElementById("main");
 
-// console.log(mainEl);
+console.log(ulEl);
 
-for (let i = 0; i < menus.length; i++) {
-   let liEl = document.createElement("li");
-   let aEl = document.createElement("a");
+for (i = 0; i < menus.length; i++) {
+   liEl = document.createElement("li");
+   aEl = document.createElement("a");
 
     // console.log(liEl);
     // console.log(aEl);
