@@ -36,13 +36,17 @@ itemDel.classList.add("itemDel");
 
 
 button.addEventListener("click", add);
+input.addEventListener("enter", add);
 
 function add(event) {
 
+   lItems.push(input.value);
 
-   event.preventDefault();
+   input.value = "";
 
-   localStorage.setItem()
+   // event.preventDefault();
+
+   localStorage.setItem(lItems)
 
 
 //   let  lItem = document.createElement("div");
