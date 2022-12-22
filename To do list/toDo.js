@@ -42,11 +42,15 @@ function add(event) {
 
    lItems.push(input.value);
 
+   localStorage.setItem(lItems)
+
    input.value = "";
 
    // event.preventDefault();
 
-   localStorage.setItem(lItems)
+   
+
+   console.log(lItems);
 
 
 //   let  lItem = document.createElement("div");
@@ -59,7 +63,7 @@ function add(event) {
     
 }
 
-
+console.log(lItems[0]);
 
 containerDiv.appendChild(title);
 containerDiv.appendChild(date);
