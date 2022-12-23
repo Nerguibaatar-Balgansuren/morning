@@ -35,7 +35,6 @@ function putIntoSaltAndTea(saltsize) {
     }, 2000);
   });
 }
-
 washPot()
   .then((result) => {
     console.log(result);
