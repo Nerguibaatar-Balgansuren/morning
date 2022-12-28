@@ -11,6 +11,11 @@
   width: 20%;
 }
 
+#main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #logo {
   width: 40px;
   height: 40px;

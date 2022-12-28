@@ -1,0 +1,13 @@
+div.bg {
+    height: 500px;
+    width: 600px;
+    background: #000;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+div {
+    height: 800px;
+    width: 800px;
+}
