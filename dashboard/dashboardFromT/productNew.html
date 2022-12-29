@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product list</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <h1>Product list</h1>
+        <div class="row">
+          <div class="col-md-1">
+            <a href="./productNew.html" class="btn btn-primary"> Нэмэх </a>
+          </div>
+          <div class="col-md-4">
+            <form action="">
+              <div class="mb-3">
+                <label for="title" class="form-label"
+                  >Бүтээгдэхүүний ангилал</label
+                >
+                <select name="category" class="form-control" id="category">
+                  <option value="0">Сонгоно уу</option>
+                  <option value="1">Гар утас</option>
+                  <option value="2">Арьс арчилгаа</option>
+                  <option value="3">Гэр ахуйн бараа</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="title" class="form-label">Бүтээгдэхүүний нэр</label>
+                <input type="text" class="form-control" id="title" />
+              </div>
+              <div class="mb-3">
+                <label for="price" class="form-label">Бүтээгдэхүүний үнэ</label>
+                <input type="text" class="form-control" id="price" />
+              </div>
+              <div class="mb-3">
+                <label for="image" class="form-label">Зураг</label>
+                <input type="file" class="form-control" id="image" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="">Ontsgoi baraa eseh</label>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    name="isSpecial"
+                    class="form-check-input"
+                    value="yes"
+                  />
+                  <label for="yes" class="form-check-label">Tiim</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="">Odor songoh</label>
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    name="days"
+                    class="form-check-input"
+                    value="1"
+                  />
+                  <label for="1" class="form-check-label">Monday</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    name="days"
+                    class="form-check-input"
+                    value="2"
+                  />
+                  <label for="2" class="form-check-label">Tuesday</label>
+                </div>
+                <div class="form-check">
+                    <input
+                      type="checkbox"
+                      name="days"
+                      class="form-check-input"
+                      value="3"
+                    />
+                    <label for="3" class="form-check-label">Wednesday</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      name="days"
+                      class="form-check-input"
+                      value="4"
+                    />
+                    <label for="4" class="form-check-label">Thursday</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      name="days"
+                      class="form-check-input"
+                      value="5"
+                    />
+                    <label for="5" class="form-check-label">Friday</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      name="days"
+                      class="form-check-input"
+                      value="6"
+                    />
+                    <label for="6" class="form-check-label">Saturday</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      name="days"
+                      class="form-check-input"
+                      value="7"
+                    />
+                    <label for="7" class="form-check-label">Sunday</label>
+                  </div>
+              </div>
+
+              <button id="btn" type="submit" class="btn btn-primary">Хадгалах</button>
+            </form>
+
+            <!-- <form>
+                <div class="mb-3">
+                  <label for="title" class="form-label">buteegdehuunii angilal</label>
+                  <select name="category" id="category">
+                    <option value="0">Сонгоно уу?</option>
+                    <option value="">Гар утас</option>
+                    <option value="">Арьс арчилгаа</option>
+                    <option value="">Гэр ахуйн бараа</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="title" class="form-label">Бүтээгдэхүүний нэр</label>
+                  <input type="text" class="form-control" id="title">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Бүтээгдэхүүний үнэ</label>
+                    <input type="text" class="form-control" id="price">
+                  </div>
+                  <div class="mb-3">
+                    <label for="image" class="form-label">Зураг</label>
+                    <input type="text" class="form-control" id="image">
+                  </div> -->
+
+            <!-- <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Бүтээгдэхүүний нэр</th>
+                <th scope="col">Тайлбар</th>
+                <th scope="col">Үнэ</th>
+                <th scope="col">Үйлдлүүд</th>
+              </tr>
+            </thead>
+            <tbod id="productList">
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+              </tr>
+
+              </tbody>
+          </table> -->
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

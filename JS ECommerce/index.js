@@ -1,27 +1,29 @@
-let main = document.getElementById("main")
-
+let main = document.getElementById("main");
 
 function getData() {
-    fetch('https://dummyjson.com/products')
-.then(res => res.json())
-.then((data) => {
-    products = [...data.products]
-    // drawHTML();
-    // fillRegion();
-    console.log(products);
-    showMain();
-})
-.catch(console.log("error"))
-
+  fetch("https://dummyjson.com/products")
+    .then((res) => res.json())
+    .then((data) => {
+      products = [...data.products];
+      // drawHTML();
+      // fillRegion();
+      console.log(products);
+      showMain();
+    })
+    .catch(console.log("error"));
 }
 getData();
 
 function showMain(params) {
-   let row = ""
-    products.map((product)=>{
-        // console.log(product.title);
-
-        row += `<div class="col-md-3"> <div class="card" style="width: 18rem;">
+  let row = "";
+  products.map((product) => {
+    // console.log(product.title);
+    // let imgs = new Image()
+    // imgs.onload = function() {
+    //     console.log("images loaded");
+    //     do
+    // }
+    row += `<div class="col-md-3"> <div class="card" style="width: 18rem;">
         <img src="${product.thumbnail}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${product.title}</h5>
@@ -30,31 +32,43 @@ function showMain(params) {
         </div>
       </div>
       </div> `;
-        // console.log(row);
-    })  
+    // console.log(row);
+  });
 
-    main.innerHTML = row;
+  main.innerHTML = row;
 }
-// };
 
+function showLeft(params) {
+  let row = "";
+  fetch("https://dummyjson.com/products/categories")
+    .then((res) => res.json())
+    .then(catData) => {
+        categories = [...catData];
+        // drawHTML();
+        // fillRegion();
+        console.log(categories);
+        
+      }
+      .catch(console.log("error"));
+  }
 
 // const drawHTML = filteredData => main.innerHTML;
 
 // function drawHTML(filteredData) {
 //     let row = "";
 //     main.innerHTML = "";
-  
+
 //     if (products == 0) {
 //       console.log("data hooson bna");
 //     }
-  
+
 //     (filteredData
 //       ? filteredData.length == 0
 //         ? []
 //         : filteredData
 //       : products
 //     ).map((products) => {
-//       row += `<div class="col"> 
+//       row += `<div class="col">
 //     <a href="./products.html?productsname='${products.title}'&category=${products.category}">
 //       <h6> ${products.title}</h6>
 //     </a>
@@ -68,8 +82,7 @@ function showMain(params) {
 // }
 
 function fetchCategories(params) {
-    fetch('https://dummyjson.com/products/categories')
-.then(res => res.json())
-.then(console.log);
+  fetch("https://dummyjson.com/products/categories")
+    .then((res) => res.json())
+    .then(console.log);
 }
-
