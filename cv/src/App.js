@@ -29,7 +29,7 @@ function App() {
 
     const formatDate = (date) =>{
 
-      let str = `${date.getFullYear()} - ${date.getMonth()} - ${date.getDay()}`
+      let str = `${date.getFullYear()} - ${date.getMonth()} - ${date.getDate()}`;
     }
 
   return (

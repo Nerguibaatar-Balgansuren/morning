@@ -1,3 +1,3 @@
-fetch('https://dummyjson.com/products')
-.then(res => res.json())
-.then(console.log);
+menus = ["home", "about", "cone"]
+menuItems = menus.toString().toUpperCase().split(" ")
+console.log(menuItems)
