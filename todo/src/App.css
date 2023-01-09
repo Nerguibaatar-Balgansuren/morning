@@ -1,9 +1,9 @@
-
-
 .App {
   text-align: center;
 }
-
+.container {
+  margin: 0 auto;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,14 +37,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-Header {
-  background-color: #FFC017;
-  height: 75px;
-  
-}
-
-.orange-bg {
-  background-color: #FFC017;
 }

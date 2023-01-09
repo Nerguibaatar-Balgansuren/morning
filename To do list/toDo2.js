@@ -17,7 +17,7 @@ main.innerHTML = `<div class="section1">
 </div>
 </div>`;
 
-list = []
+lItem = []
 
 button = document.getElementsByTagName("button")[0];
 button.addEventListener("click", add);
@@ -26,17 +26,17 @@ function add(event) {
 
     event.preventDefault();
  
-    localStorage.setItem()
+    // localStorage.setItem()
 
 
  
  
- //   let  lItem = document.createElement("div");
- //     lItem.classList.add("lItem", "flex");
+   let  lItem = document.createElement("div");
+     lItem.classList.add("lItem", "flex");
      
- //     lItem.innerHTML = input.value;
- //     lItem.id = "1"
+     lItem.innerHTML = input.value;
+     lItem.id = "1"
  
- //     list.appendChild(lItem)
+     list.appendChild(lItem)
      
  }

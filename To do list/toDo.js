@@ -46,20 +46,20 @@ function add(event) {
 
    input.value = "";
 
-   // event.preventDefault();
+   event.preventDefault();
 
    
 
    console.log(lItems);
 
 
-//   let  lItem = document.createElement("div");
-//     lItem.classList.add("lItem", "flex");
+  let  lItem = document.createElement("div");
+    lItem.classList.add("lItem", "flex");
     
-//     lItem.innerHTML = input.value;
-//     lItem.id = "1"
+    lItem.innerHTML = input.value;
+    lItem.id = "1"
 
-//     list.appendChild(lItem)
+    list.appendChild(lItem)
     
 }
 
@@ -69,7 +69,7 @@ containerDiv.appendChild(title);
 containerDiv.appendChild(date);
 containerDiv.appendChild(form);
 containerDiv.appendChild(listTitle);
-// containerDiv.appendChild(list);
+containerDiv.appendChild(list);
 form.appendChild(input);
 form.appendChild(button);
 
