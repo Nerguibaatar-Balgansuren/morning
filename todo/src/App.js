@@ -5,7 +5,7 @@ function App() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
-  const [isDone, setIsDone] = useState(false);
+  // const [isDone, setIsDone] = useState(false);
 
   const [doneTasks, setDoneTasks] = useState(0);
 
@@ -23,7 +23,25 @@ function App() {
 
     setTask("");
 
-    console.log("add");
+    console.log(newArr);
+  };
+
+  const editTask = () => {
+
+  };
+
+  const deleteTask = (id) => {
+    console.log("delete");
+    const newArr = [...tasks]
+    const objList = newArr.map((e) => {
+      if (e.id == id) {
+        console.log("found");
+        console.log(tasks.indexOf(e));
+        // newArr.splice(newArr.indexOf(e), 1);
+      };
+    });
+    setTasks(newArr);
+
   };
 
   const onDoneTask = (id) => {
@@ -47,7 +65,7 @@ function App() {
   }
 
   return (
-    <div className="container">
+    <div className="container main">
       <div className="row mt-4">
         <div className="col-md-4">
           <h1>Todo list</h1>
@@ -62,6 +80,7 @@ function App() {
               value={task}
               onChange={(e) => setTask(e.target.value)}
               placeholder="task oruulna uu?"
+              
             />
 
             <button className="btn btn-primary" onClick={addTask}>
@@ -83,8 +102,11 @@ function App() {
                 <h4>{e.title}</h4>
               </div>
               <div>
-                <button className="btn btn-warning">Edit</button>
-                <button className="btn btn-danger">Delete</button>
+                <button className="btn btn-warning" onClick={editTask}>
+                  Edit</button>
+
+                <button className="btn btn-danger" onClick={() => deleteTask(e.id)}>
+                  Delete</button>
               </div>
             </div>
           ))}
