@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import "./App.css";
+import LightSwitch from "./components/Light";
+import Modal from "./components/Modal";
+import Signup from "./components/Signup";
+import Toolbar from "./components/Toolbar";
+import Login from "./components/Login";
+
 
 function App() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [ID, setId] = useState("0");
+  const [modal, setModal] = useState(false);
+  const [isLoggedIn, setisLoggedIn] = useState(false);
 
   // const [isDone, setIsDone] = useState(false);
 
@@ -11,37 +20,31 @@ function App() {
 
   const addTask = () => {
     const newObj = {
-      id: tasks.length,
+      id: createId(),
       title: task,
       isDone: false,
     };
 
     const newArr = [...tasks];
-    newArr.push(newObj);
+
+    if (ID !== "0") {
+      newArr.map((e) => {
+        if (e.id === ID) {
+          e.title = task;
+        }
+        return e;
+      });
+    } else {
+      newArr.push(newObj);
+    }
 
     setTasks(newArr);
 
     setTask("");
+    setId("0");
+    setModal(false);
 
     console.log(newArr);
-  };
-
-  const editTask = () => {
-
-  };
-
-  const deleteTask = (id) => {
-    console.log("delete");
-    const newArr = [...tasks]
-    const objList = newArr.map((e) => {
-      if (e.id == id) {
-        console.log("found");
-        console.log(tasks.indexOf(e));
-        // newArr.splice(newArr.indexOf(e), 1);
-      };
-    });
-    setTasks(newArr);
-
   };
 
   const onDoneTask = (id) => {
@@ -58,15 +61,79 @@ function App() {
     showDoneTasks();
   };
 
+  const handleModal = () => {
+    setModal(!modal);
+  };
+
+  const handleEdit = (id, title, isDone) => {
+    if (!isDone) {
+      setTask(title);
+      setId(id);
+      setModal(true);
+    }
+  };
+
+  function createId() {
+    let abc = "ABCDEFJHJKLMNO";
+
+    let num = "1234567890";
+
+    console.log(Math.random(1 * 10));
+
+    let newStr =
+      abc.split("")[Math.floor(Math.random() * 10 + 1)] +
+      abc.split("")[Math.floor(Math.random() * 10 + 1)] +
+      abc.split("")[Math.floor(Math.random() * 10 + 1)];
+
+    let newNumber =
+      num.split("")[Math.floor(Math.random() * 10)] +
+      "" +
+      num.split("")[Math.floor(Math.random() * 10)] +
+      "" +
+      num.split("")[Math.floor(Math.random() * 10)];
+
+    console.log(newStr + newNumber);
+
+    return newStr + newNumber;
+  }
+
+  const handleDelete = (id) => {
+    const newArr = tasks.filter((e) => e.id !== id);
+    setTasks(newArr);
+
+    console.log(newArr);
+    showDoneTasks();
+    
+  };
+
   function showDoneTasks() {
+    console.log(tasks);
     const arr = tasks.filter((e) => e.isDone == true);
 
     setDoneTasks(arr.length);
   }
 
+  const onLogin = (userName, passWord) => {
+    if(userName == "Bold" && passWord == "123123") {
+      setisLoggedIn(true);
+    } else {
+      alert("username or password is incorrect");
+    }
+    
+  }
+
   return (
     <div className="container main">
+
+      
+
       <div className="row mt-4">
+         {/* <Toolbar /> */}
+
+        {/*
+        <Signup /> 
+         <LightSwitch />
+         */}
         <div className="col-md-4">
           <h1>Todo list</h1>
           <div className="col-md-4">
@@ -74,6 +141,11 @@ function App() {
           </div>
 
           <div className="d-flex gap-3">
+            <button className="btn btn-primary" onClick={handleModal}>
+              Modal
+            </button>
+
+
             <input
               className="form-control"
               type="text"
@@ -82,7 +154,7 @@ function App() {
               placeholder="task oruulna uu?"
               
             />
-
+            <input type="hidden" value={ID} />
             <button className="btn btn-primary" onClick={addTask}>
               +Add
             </button>
@@ -93,7 +165,7 @@ function App() {
         <div className="col-md-4">
           {tasks.map((e) => (
             <div className="d-flex justify-content-between align-items-center">
-              <div>
+              <div className="d-flex">
                 <input
                   type="checkbox"
                   checked={e.isDone}
@@ -102,15 +174,26 @@ function App() {
                 <h4>{e.title}</h4>
               </div>
               <div>
-                <button className="btn btn-warning" onClick={editTask}>
+                <button className="btn btn-warning" onClick={() => handleEdit(e.id, e.title, e.isDone)}>
                   Edit</button>
 
-                <button className="btn btn-danger" onClick={() => deleteTask(e.id)}>
+                <button className="btn btn-danger" onClick={() => handleDelete(e.id)}>
                   Delete</button>
               </div>
             </div>
           ))}
         </div>
+        {/* {modal && (
+          <Modal
+            modal={modal}
+            setModal={handleModal}
+            task={task}
+            id={ID}
+            setTask={setTask}
+            addTask={addTask}
+            // setTasks={setTasks}
+          />
+        )} */}
       </div>
     </div>
   );
