@@ -8,35 +8,40 @@ import Login from "./components/Login";
 
 
 function App() {
-  const [task, setTask] = useState("");
+  const [task, setTask] = useState({});
   const [tasks, setTasks] = useState([]);
   const [ID, setId] = useState("0");
   const [modal, setModal] = useState(false);
   const [isLoggedIn, setisLoggedIn] = useState(false);
+  const init = {
+      id: "",
+      task: "",
+      isDone: false,
+      isImportant: false,
+      type: 0,
+  };
+
+  const [taskObj, setTaskObj] = useState(init);
 
   // const [isDone, setIsDone] = useState(false);
 
   const [doneTasks, setDoneTasks] = useState(0);
 
   const addTask = () => {
-    const newObj = {
-      id: createId(),
-      title: task,
-      isDone: false,
-    };
+    const newObj = init;
 
     const newArr = [...tasks];
 
-    if (ID !== "0") {
-      newArr.map((e) => {
-        if (e.id === ID) {
-          e.title = task;
-        }
-        return e;
-      });
-    } else {
-      newArr.push(newObj);
-    }
+    // if (ID !== "0") {
+    //   newArr.map((e) => {
+    //     if (e.id === ID) {
+    //       e.title = task;
+    //     }
+    //     return e;
+    //   });
+    // } else {
+      newArr.push({ ...taskObj, id: createId() });
+    // }
 
     setTasks(newArr);
 
@@ -102,7 +107,7 @@ function App() {
     setTasks(newArr);
 
     console.log(newArr);
-    showDoneTasks();
+    showDoneTasks(newArr => newArr);
     
   };
 
@@ -125,7 +130,7 @@ function App() {
   return (
     <div className="container main">
 
-      
+      {/* {!isLoggedIn ?} */}
 
       <div className="row mt-4">
          {/* <Toolbar /> */}
@@ -149,8 +154,9 @@ function App() {
             <input
               className="form-control"
               type="text"
-              value={task}
-              onChange={(e) => setTask(e.target.value)}
+              value={taskObj.task}
+              onChange={(e) => {setTaskObj({ ...taskObj, task: e.target.value});
+              }}
               placeholder="task oruulna uu?"
               
             />
