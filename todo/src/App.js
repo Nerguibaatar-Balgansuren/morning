@@ -23,31 +23,20 @@ function App() {
 
   const [taskObj, setTaskObj] = useState(init);
 
-  // const [isDone, setIsDone] = useState(false);
-
   const [doneTasks, setDoneTasks] = useState(0);
 
   const addTask = () => {
-    const newObj = init;
 
     const newArr = [...tasks];
 
-    // if (ID !== "0") {
-    //   newArr.map((e) => {
-    //     if (e.id === ID) {
-    //       e.title = task;
-    //     }
-    //     return e;
-    //   });
-    // } else {
       newArr.push({ ...taskObj, id: createId() });
-    // }
 
     setTasks(newArr);
 
     setTask("");
     setId("0");
     setModal(false);
+    setTaskObj(init);
 
     console.log(newArr);
   };
@@ -63,7 +52,7 @@ function App() {
     });
 
     setTasks(objList);
-    showDoneTasks();
+    showDoneTasks(objList);
   };
 
   const handleModal = () => {
@@ -82,8 +71,6 @@ function App() {
     let abc = "ABCDEFJHJKLMNO";
 
     let num = "1234567890";
-
-    console.log(Math.random(1 * 10));
 
     let newStr =
       abc.split("")[Math.floor(Math.random() * 10 + 1)] +
@@ -107,13 +94,20 @@ function App() {
     setTasks(newArr);
 
     console.log(newArr);
-    showDoneTasks(newArr => newArr);
+    
+
+    // setTasks(n=> n.push(newArr))
+    showDoneTasks(newArr) ;
     
   };
 
-  function showDoneTasks() {
+  function showDoneTasks(para) {
+
+
+
+
     console.log(tasks);
-    const arr = tasks.filter((e) => e.isDone == true);
+    const arr = para.filter((e) => e.isDone == true);
 
     setDoneTasks(arr.length);
   }
@@ -158,6 +152,7 @@ function App() {
               onChange={(e) => {setTaskObj({ ...taskObj, task: e.target.value});
               }}
               placeholder="task oruulna uu?"
+              onKeyUp={addTask}
               
             />
             <input type="hidden" value={ID} />
@@ -177,7 +172,7 @@ function App() {
                   checked={e.isDone}
                   onChange={() => onDoneTask(e.id)}
                 />
-                <h4>{e.title}</h4>
+                <h4>{e.task}</h4>
               </div>
               <div>
                 <button className="btn btn-warning" onClick={() => handleEdit(e.id, e.title, e.isDone)}>
