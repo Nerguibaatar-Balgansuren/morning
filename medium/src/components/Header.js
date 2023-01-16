@@ -2,7 +2,7 @@ export default function Header({ mediumLogo }) {
   return (
     <>
       <nav class="navbar navbar-expand-lg orange-bg">
-        <div class="container-fluid">
+        <div class="container-fluid justify-content-between d-flex">
           <a class="navbar-brand" href="#">
             <img src={mediumLogo} alt="" width={150} />
           </a>
@@ -29,6 +29,8 @@ export default function Header({ mediumLogo }) {
                 Write
               </a>
               <a class="nav-link">Sign in</a>
+              <a id="getStarted" class="nav-link">Get started</a>
+
               
             </div>
           </div>
