@@ -56,3 +56,171 @@ Header {
   color: white;
   margin-left: 10px;
 }
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list-item {
+  padding: 15px;
+}
+
+a {
+  color: black;
+}
+
+.title {
+  font-size: 14px;
+  text-shadow: -3px 4px 13px black;
+}
+
+.bg-color {
+  background-color: #ffc017;
+}
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  padding: 0px 20px;
+}
+
+.author-name {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #292929;
+  margin-bottom: 0;
+}
+
+.news-title {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 28px;
+}
+
+.news-body {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: #757575;
+}
+
+.point {
+  width: 3px;
+  height: 3px;
+  background-color: #cacaca;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.trend-number {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+
+  color: #e6e6e6;
+  padding-right: 24px;
+}
+
+.cate-title {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.996px;
+  text-transform: uppercase;
+
+  color: #292929;
+}
+
+/* .btn {
+  background: #f2f2f2;
+  border-radius: 100px;
+} */
+
+.desc {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+
+  color: #757575;
+}
+
+.FeatureTitle {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.996px;
+  text-transform: uppercase;
+
+  color: #292929;
+}
+
+.inWord {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+
+  color: #757575;
+  display: inline-block;
+  padding: 0 2px;
+}
+
+.categoryText {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  color: #757575;
+  margin-bottom: 0;
+}
+
+.categoryCard {
+  border: 2px solid rgb(241 241 241);
+  padding: 5px 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(221 221 221 / 90%);
+}
+
+.modal-body {
+  padding: 20px;
+  width: 450px;
+
+  background-color: white;
+  margin-top: 150px;
+  margin-right: auto;
+  margin-left: auto;
+
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

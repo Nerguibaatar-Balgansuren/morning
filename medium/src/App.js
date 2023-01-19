@@ -1,7 +1,7 @@
 import React from "react";
-import './App.css';
-import Header from './components/Header';
-import Slider from './components/Slider';
+import "./App.css";
+import Header from "./components/Header";
+import Slider from "./components/Slider";
 import { Routes, Route } from "react-router-dom";
 import { users } from "./components/data";
 import { useState } from "react";
@@ -13,36 +13,33 @@ import NewsDetail from "./components/NewsDetail";
 import About from "./components/About";
 import Main from "./components/Main";
 
-
 function App() {
-
   const data1 = {
-    mediumLogo : "https://miro.medium.com/max/8978/1*s986xIGqhfsN8U--09_AdA.png"
-  }
-    const [data, setData] = useState([]);
-    const [user, setUser] = useState();
-    const [showModal, setShowModal] = useState(false);
-    const [admin, setAdmin] = useState(false);
-  
-    const [bgColor, setBgColor] = useState(user ? "white" : "#ffc017");
-    const objStyle = {
-      backgroundColor: bgColor,
-    };
-    const handleScroll = (event) => {
-      if (user) {
+    mediumLogo: "https://miro.medium.com/max/8978/1*s986xIGqhfsN8U--09_AdA.png",
+  };
+  const [data, setData] = useState([]);
+  const [user, setUser] = useState();
+  const [showModal, setShowModal] = useState(false);
+  const [admin, setAdmin] = useState(false);
+
+  const [bgColor, setBgColor] = useState(user ? "white" : "#ffc017");
+  const objStyle = {
+    backgroundColor: bgColor,
+  };
+  const handleScroll = (event) => {
+    if (user) {
+      setBgColor("white");
+    } else {
+      if (event.currentTarget.scrollTop >= 600) {
         setBgColor("white");
       } else {
-        if (event.currentTarget.scrollTop >= 600) {
-          setBgColor("white");
-        } else {
-          setBgColor("#ffc017");
-        }
+        setBgColor("#ffc017");
       }
-    };
-    const openModal = () => {
-      setShowModal(!showModal);
-    };
-  
+    }
+  };
+  const openModal = () => {
+    setShowModal(!showModal);
+  };
 
   const onLogin = (uname, pword) => {
     users.map((userObj) => {
@@ -63,7 +60,7 @@ function App() {
           onScroll={handleScroll}
         >
           <Header
-            mediumLogo = {data.mediumLogo}
+            mediumLogo={data.mediumLogo}
             style={objStyle}
             onLogin={onLogin}
             user={user}
@@ -100,14 +97,6 @@ function App() {
       )}
     </div>
   );
-};
-
-
-
-
-
-  
-    
-
+}
 
 export default App;
