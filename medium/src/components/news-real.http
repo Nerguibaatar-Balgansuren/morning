@@ -1,0 +1,74 @@
+
+###
+GET https://medium-api-psi.vercel.app/api/news
+
+
+###
+GET https://medium-api-psi.vercel.app/api/news?id=63cd77d5a03c511debc11606
+
+
+###
+post https://medium-api-psi.vercel.app/api/news
+content-type: application/json
+
+{
+    "title": " Test user",
+    "body": " Test news",
+    "isTrending": false,
+    "category": "Economic",
+    "read": "5 min read",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpm0AXv9uGZD7IQKGrI10kmGPXytkQxo_t_gWCJvbt6QFL9VcWHCBnLT3sF2OXrv6xme4&usqp=CAU",
+    "date": "2023-01-09",
+    "isSaved":false,
+    "createdUser": {
+      "firstName": "Tom Frieden",
+      "lastName": "Dr",
+      "userId": "1",
+      "userImg":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxy6RxLojUCau-I0PFwlyXWnb4zY2yq-dQyA&usqp=CAU",
+      "organization": "Forbes"
+    }
+    
+}
+###
+
+PUT  https://medium-api-psi.vercel.app/api/news?id=63cd6e73da93fc40cecd8e06
+content-type: application/json
+
+{
+    "title": " TEST",
+    "body": " Update",
+    "isTrending": false,
+    "category": "Economic",
+    "read": "5 min read",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpm0AXv9uGZD7IQKGrI10kmGPXytkQxo_t_gWCJvbt6QFL9VcWHCBnLT3sF2OXrv6xme4&usqp=CAU",
+    "date": "2023-01-09",
+    "isSaved":false
+}
+
+
+###
+GET https://medium-api-psi.vercel.app/news?id=sasasa
+
+
+
+###
+GET http://localhost:4040/product/63ad0acb42d537f679a7aef5
+
+
+###
+DELETE  http://localhost:4040/product/63acabb7fc2aec757d910086
+
+
+###
+PUT  http://localhost:4040/product/:id
+content-type: application/json
+
+{
+  "title": "iPhone",
+  "description": "smartphone",
+  "price": "1230",
+  "isSpecial": false,
+  "imageURL": "url",
+  "category": "smartphone",
+  "days": "1,2,5"
+}

@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function NewsDetail() {
   return (
-    <div>NewsDetail</div>
-  )
+    <div className="container" style={{ marginTop: "5rem" }}>
+      NewsDetail
+    </div>
+  );
 }

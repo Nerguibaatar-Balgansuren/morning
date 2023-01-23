@@ -1,0 +1,23 @@
+###
+get http://localhost:3000/api/users
+
+
+###
+get http://localhost:3000/api/users?id=63cde513f76277111603ecad
+
+
+
+###
+post http://localhost:3000/api/users
+content-type: application/json
+
+{
+  "username":"Oyuka",
+  "password":"123123",
+  "userType":"admin",
+  "firstName": "Tom Frieden",
+  "lastName": "Dr",
+  "userId": "1",
+  "userImg":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxy6RxLojUCau-I0PFwlyXWnb4zY2yq-dQyA&usqp=CAU",
+  "organization": "Forbes"
+}
