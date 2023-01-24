@@ -45,6 +45,10 @@ Header {
   
 }
 
+#header {
+  height: 75px;
+}
+
 .orange-bg {
   background-color: #FFC017;
 }

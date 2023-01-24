@@ -2,7 +2,8 @@ import React from "react"
 import LoginModal from "./LoginModal";
 import "../App.css";
 
-export default function Header({ mediumLogo,
+export default function Header({ 
+  mediumLogo,
   style,
   onLogin,
   user,
@@ -24,7 +25,7 @@ export default function Header({ mediumLogo,
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg orange-bg">
+      <nav id="header" className="navbar navbar-expand-lg orange-bg">
         <div className="container-fluid justify-content-between d-flex">
           <a className="navbar-brand" href="#">
             <img src={mediumLogo} alt="" width={150} />
