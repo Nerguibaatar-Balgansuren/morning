@@ -1,0 +1,12 @@
+###
+
+GET http://localhost:8080/api/menu
+
+###
+POST http://localhost:8080/api/menu
+
+###
+PUT http://localhost:8080/api/menu
+
+###
+DELETE http://localhost:8080/api/menu
