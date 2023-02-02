@@ -6,6 +6,7 @@ const fs = require("fs");
 
 const menuRouter = require("./routes/menu.route.js");
 const catRouter = require("./routes/cat.route.js");
+const usersRouter = require("./routes/users.route")
 const { request } = require("express");
 
 app.use(cors());
@@ -13,6 +14,7 @@ app.use(express.json());
 
 app.use("/api", menuRouter);
 app.use("/api", catRouter);
+app.use("/api", usersRouter);
 
 app.get("api", (req, res) => {
     res.json({ message: "Welcome Rest API" });

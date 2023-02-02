@@ -1,9 +1,11 @@
 ###
 
-GET http://localhost:8080/api/menu
+GET http://localhost:8080/api/users
 
 ###
-POST http://localhost:8080/api/menu
+POST http://localhost:8080/api/users
+
+{"id": "3", "username": "test", "password": "test", "isAdmin": "false"}
 
 ###
 PUT http://localhost:8080/api/menu

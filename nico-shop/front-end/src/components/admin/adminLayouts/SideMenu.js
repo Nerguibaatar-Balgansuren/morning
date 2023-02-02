@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function sideMenu() {
+export default function SideMenu() {
   const sideMenuItems = [
     { id: 1, title: "Dashboard", link: "Dashboard" },
     { id: 2, title: "Leaderboard", link: "Leaderboard" },
