@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import NewsDetail from "./components/NewsDetail";
 import Login from "./components/admin/Login";
 import Admin from "./components/admin/Admin";
-import MainLayout from "./components/MainLayout";
+import MainLayout from "./components/LayOuts/MainLayout"
 import Main from "./components/Main";
 import Users from "./components/admin/Users";
 import AddUser from "./components/admin/AddUser";

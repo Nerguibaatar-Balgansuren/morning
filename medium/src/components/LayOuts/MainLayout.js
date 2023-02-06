@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "./Header";
+import Footer from "./Footer";
 
-import ImageSection from "../components/ImageSection";
+import ImageSection from "../ImageSection";
 
-import { users } from "../components/data";
+import { users } from "../data";
 import { Outlet } from "react-router-dom";
 
 export default function MainLayout() {

@@ -1,6 +1,5 @@
 import React from "react"
-import LoginModal from "./LoginModal";
-import "../App.css";
+import LoginModal from "../LoginModal"
 
 export default function Header({ 
   mediumLogo,
