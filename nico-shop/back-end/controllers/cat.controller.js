@@ -1,10 +1,10 @@
 const fs = require("fs");
 const uuid = require("uuid");
 
-const catData = process.cwd() + "/data/category.json";
+const dataFile = process.cwd() + "/data/category.json";
 
 exports.getAll = (request, response) => {
-  fs.readFile(catData, "utf-8", (readErr, data) => {
+  fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
     }
@@ -16,19 +16,19 @@ exports.getAll = (request, response) => {
 };
 
 exports.create = (request, response) => {
-  const { catName, link } = request.body;
-  fs.readFile(catData, "utf-8", (readErr, data) => {
+  const { menuName, link } = request.body;
+  fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
     }
 
     const parsedData = data ? JSON.parse(data) : [];
 
-    const newObj = { id: uuid.v4(), catName, link };
+    const newObj = { id: uuid.v4(), menuName, link };
 
     parsedData.push(newObj);
 
-    fs.writeFile(catData, JSON.stringify(parsedData), (writeErr) => {
+    fs.writeFile(dataFile, JSON.stringify(parsedData), (writeErr) => {
       if (writeErr) {
         return response.json({ status: false, message: writeErr });
       }
@@ -39,23 +39,23 @@ exports.create = (request, response) => {
 };
 
 exports.update = (req, res) => {
-  const { id, catName, link, position } = request.body;
-  fs.readFile(catData, "utf-8", (readErr, data) => {
+  const { id, menuName, link, position } = request.body;
+  fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
     }
 
     const parsedData = data ? JSON.parse(data) : [];
 
-    const updateData = parsedData.map((catObj) => {
-      if (catObj.id == id) {
-        return { ...catObj, catName, link, position };
+    const updateData = parsedData.map((menuObj) => {
+      if (menuObj.id == id) {
+        return { ...menuObj, menuName, link, position };
       } else {
-        return catObj;
+        return menuObj;
       }
     });
 
-    fs.writeFile(catData, JSON.stringify(updateData), (writeErr) => {
+    fs.writeFile(dataFile, JSON.stringify(updateData), (writeErr) => {
       if (writeErr) {
         return response.json({ status: false, message: writeErr });
       }
@@ -67,7 +67,7 @@ exports.update = (req, res) => {
 
 exports.delete = (req, res) => {
   const { id } = request.params;
-  fs.readFile(catData, "utf-8", (readErr, data) => {
+  fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
     }
@@ -76,7 +76,7 @@ exports.delete = (req, res) => {
 
     const deletedData = parsedData.filter((e) => e.id != id);
 
-    fs.writeFile(catData, JSON.stringify(deletedData), (writeErr) => {
+    fs.writeFile(dataFile, JSON.stringify(deletedData), (writeErr) => {
       if (writeErr) {
         return response.json({ status: false, message: writeErr });
       }

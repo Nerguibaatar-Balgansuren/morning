@@ -10,6 +10,7 @@ export default function MainLayout() {
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState();
     const [showModal, setShowModal] = useState(false);
+    const [admin, setAdmin] = useState(false);
     const data1 = {
       Logo:
         "https://cdn.vectorstock.com/i/1000x1000/92/64/shop-market-store-simple-colorful-logo-icon-design-vector-35019264.webp",

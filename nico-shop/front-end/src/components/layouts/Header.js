@@ -64,19 +64,7 @@ export default function Header({
                 </li>
               </>
             ))}
-              {/* <a className="nav-link" aria-current="page" href="#">
-                Our story
-              </a>
-              <a className="nav-link" href="#">
-                Membership
-              </a>
-              <a className="nav-link" href="#">
-                Write
-              </a>
-              <a className="nav-link">Sign in</a>
-              <a className="nav-link brButton">Get started</a>
 
-               */}
             </div>
           </div>
         </div>
