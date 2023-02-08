@@ -1,0 +1,19 @@
+[{
+    "productName": "IphoneX",
+    "categoryId": "phone",
+    "price": 1000,
+    "thumbImage": "",
+    "images": [],
+    "salePercent": 30,
+    "quantity": 10,
+    "desc": "IphoneX"
+}, {
+    "productName": "Imac",
+    "categoryId": "Desktop",
+    "price": 1500,
+    "thumbImage": "",
+    "images": [],
+    "salePercent": 15,
+    "quantity": 5,
+    "desc": "Imac 2015"
+}]

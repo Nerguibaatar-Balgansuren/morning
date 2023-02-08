@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import AdminHeader from "./adminLayouts/AdminHeader";
-import SideMenu from "./adminLayouts/sideMenu";
+import SideMenu from "./adminLayouts/SideMenu"
 import Dashboard from "./Dashboard";
 
 
 export default function AdminLayout() {
   return (
-    <div className="container">
+    <div className="container d-flex">
       <div className="col-md-3">
         <SideMenu />
       </div>
@@ -15,7 +16,7 @@ export default function AdminLayout() {
           <AdminHeader />
         </div>
         <div className="row">
-            <Dashboard />
+            <Outlet />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect }from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Header from "./Header";
 
 
@@ -11,6 +11,7 @@ export default function MainLayout() {
     const [user, setUser] = useState();
     const [showModal, setShowModal] = useState(false);
     const [admin, setAdmin] = useState(false);
+    const navigate = useNavigate()
     const data1 = {
       Logo:
         "https://cdn.vectorstock.com/i/1000x1000/92/64/shop-market-store-simple-colorful-logo-icon-design-vector-35019264.webp",
@@ -35,23 +36,33 @@ export default function MainLayout() {
       };
 
   const onLogin = (uname, pword) => {
-    users.map((userObj) => {
-      if (userObj.username == uname && userObj.password == pword) {
-        setShowModal(false);
-        setUser(userObj);
-         if (userObj.isAdmin = true) {
-            setAdmin(true);
-            console.log("Admin logged in");
-         }
-        console.log(`successfuly logged in `);
-        return "success";
+   const loginUser =  users.filter((userObj) => { return userObj.username == uname && userObj.password == pword
+      // if (userObj.username == uname && userObj.password == pword) {
+      //   setShowModal(false);
+      //   setUser(userObj);
+         
+      //    if (userObj.isAdmin == true) {
+      //       setAdmin(true);
+      //       console.log("Admin logged in");
+      //    }
+      //   console.log(`successfuly logged in `);
+      //   return "success";
         
-      }
-      else {
-        console.log(`user not found`);
-        return "user not found"
-      }
+      // }
+      // else {
+      //   console.log(`user not found`);
+      //   return "user not found"
+      // }
     });
+
+    if(loginUser.length > 0 ) {
+        setShowModal(false);
+        setUser(loginUser[0]);
+        navigate("/admin")
+
+    } else {
+      alert(`user not found`);
+    }
   };
 
   

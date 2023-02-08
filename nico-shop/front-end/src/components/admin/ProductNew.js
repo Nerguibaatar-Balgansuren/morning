@@ -1,7 +1,9 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import { Form } from "react-router-dom";
+import axios from "axios"
 
-const ProductNew = ({ searchParams, setSearchParams, title, onSave }) => {
+export default function ProductNew ({ searchParams, setSearchParams, title, onSave })  {
+    
     const [show, setShow] = useState(searchParams && true);
 
     const init = {
@@ -16,13 +18,126 @@ const ProductNew = ({ searchParams, setSearchParams, title, onSave }) => {
     };
 
     const [productItem, setProductItem] = useState(init);
+    const [err, setErr] = useState('');
+    const [user, setUser] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+
 
     const onClose = () => {
         setSearchParams({});
         setShow(false);
     };
 
+    function getData() {
+        fetch('http://localhost:8080/api/products')
+            .then(res => res.json())
+            .then((data) => {
+                console.log(data)
+                setProducts(data.result)
+            })
+    }
+
+    const onSave = (e) => {
+        e.preventDefault();
+
     return (
+        <>
+        <div className="modal" style={{ display: modalProduct ? "block" : "none" }}>
+        <div className="body">
+            <div className="modal-header">
+                <h1 className="modal-title fs-5 text-warning mb-5 border-bottom" id="staticBackdropLabel">Add product</h1>
+                <button type="button" className="btn-close" onClick={() => {
+                    setModalProduct(!modalProduct)
+                    setIsEdited(false)
+                }} aria-label="Close"></button>
+            </div>
+            <div className='d-flex flex-column col text-start'>
+
+                <div className='col d-flex gap-3 mb-2 justify-content-between'>
+                    <label>Product Name</label>
+                    <input className='w-75' value={product?.productName} type='text'
+                        onChange={(e) =>
+                            setProduct({ ...product, productName: e.target.value })}></input>
+                </div>
+
+                <div className='col d-flex gap-3 mb-2 justify-content-between'>
+                    <label>Discount</label>
+                    <input className='w-75' value={product?.discount} type="number"
+                        onChange={(e) =>
+                            setProduct({ ...product, discount: e.target.value })}></input>
+                </div>
+
+                <div className='col d-flex gap-3 mb-2 justify-content-between'>
+                    <label>Price</label>
+                    <input className='w-75' value={product?.price} type='number'
+                        onChange={(e) =>
+                            setProduct({ ...product, price: e.target.value })}></input>
+                </div>
+
+                <div className='col d-flex gap-3 mb-2 justify-content-between'>
+                    <label>Quantity</label>
+                    <input className='w-75' value={product?.quantity} type='number'
+                        onChange={(e) => setProduct({ ...product, quantity: e.target.value })}></input>
+                </div>
+
+                <div className='col gap-5 mb-2 justify-content-between'>
+                    <div className='d-flex justify-content-between col-12 mb-2 mt-2'>
+                        <label>Thumbnail</label>
+                        <input className='w-50' type='file'
+                            onChange={(e) => {
+                                console.log(e.target.files)
+                                const arr = []
+                                arr.push(e.target.files)
+                                sendFile("thumbimage", arr)
+
+                            }}
+                        ></input>
+                    </div>
+                    <div className='d-flex justify-content-between col-12 mt-2 mb-2'>
+                        <label>Images</label>
+                        <input className='w-50'
+                            type='file'
+                            multiple
+                            onChange={(e) => {
+                                console.log(e.target.files)
+                                const arr = [];
+                                arr.push(e.target.files);
+
+                                sendFile("images", arr)
+                            }}
+                        ></input>
+                    </div>
+                </div>
+                <div className='col d-flex gap-3 mb-2 justify-content-between'>
+                    <label>Created user</label>
+                    <select className='w-75' value={product?.createdUser}
+                        onChange={(e) => setProduct({ ...product, createdUser: e.target.value })}>
+                        <option value='0'>select</option>
+                        {user?.map((e, index) => {
+                            if (e.userType == "admin") {
+                                return (
+                                    <option value={index + 1}>
+                                        {e.userName}
+                                    </option>
+                                )
+                            }
+                        })
+                        }
+                    </select>
+                </div>
+                <div className='col d-flex gap-3 mb-2 justify-content-between'>
+                    <label>Description</label>
+                    <textarea className='w-75' value={product?.description}
+                        onChange={(e) => setProduct({ ...product, description: e.target.value })}></textarea>
+                </div>
+                <button onClick={() => {
+                    addProduct()
+                    setModalProduct(false)
+                }} className='btn btn-primary'>save</button>
+            </div>
+        </div>
+    </div>
         <Modal show={show} onHide={onClose}>
             <Modal.header closeButton>
                 <Modal.title>{title}</Modal.title>
@@ -91,5 +206,6 @@ const ProductNew = ({ searchParams, setSearchParams, title, onSave }) => {
                 </Button>
             </Modal.Footer>
         </Modal>
+        </>
     );
 };

@@ -7,6 +7,10 @@ import Admin from "./components/admin/Admin";
 import Dashboard from "./components/admin/Dashboard";
 import MainLayout from "./components/layouts/MainLayout";
 import Main from "./components/Main";
+import Products from "./components/Products";
+import Users from "./components/admin/adminComps/Users";
+import AdminLayout from "./components/admin/AdminLayout";
+import AddProduct from "./components/admin/AddProduct";
 
 function App() {
 
@@ -19,17 +23,15 @@ function App() {
             <Route path="/" element={<Main />} />
             {/* <Route path="/about" element={<About />} /> */}
             {/* <Route path="/newsdetails/:id" element={<NewsDetail />} /> */}
+            <Route path="/products" element={Products}></Route>
+          </Route>
+          
+          <Route element={<AdminLayout />}>
+            <Route index path="/admin" element={<Dashboard />}  />
+            <Route path="/users" element={<Users />} />
+            <Route path="/addproduct" element={<AddProduct />} />
           </Route>
         </Routes>
-
-        {/* <Routes>
-          <Route exact path="/login" element={<Login />} />
-          <Route element={<Admin />}>
-            <Route index path="/admin" element={<Dashboard />} />
-            {/* <Route path="/users" element={<Users />} /> */}
-            {/* <Route path="/adduser" element={<AddUser />} /> */}
-          {/* </Route>
-        </Routes> */}
       
     </div>
   );
