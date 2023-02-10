@@ -16,7 +16,14 @@ exports.getAll = (request, response) => {
 };
 
 exports.create = (request, response) => {
-  const { menuName, link } = request.body;
+  const { productName,
+    categoryId,
+    price,
+    thumbImage,
+    images,
+    salePercent,
+    quantity,
+    desc,  } = request.body;
   fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
@@ -24,7 +31,14 @@ exports.create = (request, response) => {
 
     const parsedData = data ? JSON.parse(data) : [];
 
-    const newObj = { id: uuid.v4(), menuName, link };
+    const newObj = { id: uuid.v4(), productName,
+      categoryId,
+      price,
+      thumbImage,
+      images,
+      salePercent,
+      quantity,
+      desc,  };
 
     parsedData.push(newObj);
 

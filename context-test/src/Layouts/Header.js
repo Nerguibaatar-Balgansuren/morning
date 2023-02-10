@@ -10,7 +10,7 @@ export default function Header() {
     <div className={theme}>
         <div style={{ color: theme == "bg-dark" ? "white" : "black"}}>
             <h1>Welcome</h1>
-        </div>
+        </div> 
         <div>
 
         </div>
