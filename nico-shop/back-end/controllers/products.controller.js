@@ -23,7 +23,7 @@ exports.create = (request, response) => {
     images,
     salePercent,
     quantity,
-    desc,  } = request.body;
+    description,  } = request.body;
   fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
@@ -38,7 +38,7 @@ exports.create = (request, response) => {
       images,
       salePercent,
       quantity,
-      desc,  };
+      description,  };
 
     parsedData.push(newObj);
 
@@ -98,5 +98,4 @@ exports.delete = (req, res) => {
       return response.json({ status: true, result: deletedData });
     });
   });
-};const fs = require("fs");
-const uuid = require("uuid");
+};

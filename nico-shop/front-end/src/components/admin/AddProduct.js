@@ -66,7 +66,7 @@ export default function AddProduct({
   const sendFile = async (fieldName, files) => {
     console.log(files);
 
-    const url = "https://api.cloudinary.com/v1_1/dhwfof0wr/upload";
+    const url = "https://api.cloudinary.com/v1_1/dauzova4d/upload";
 
     const newArr = [];
     for (let i = 0; i < files[0].length; i++) {
@@ -77,9 +77,9 @@ export default function AddProduct({
         const formData = new FormData();
 
         formData.append("file", file);
-        formData.append("api_key", 952991779626734);
+        formData.append("api_key", 528295471864498);
         formData.append("folder", "shop");
-        formData.append("upload_preset", "dhwfof0wr");
+        formData.append("upload_preset", "dauzova4d");
 
         return axios.post(url, formData);
       })
@@ -140,7 +140,7 @@ export default function AddProduct({
               <label>Discount</label>
               <input
                 className="w-75"
-                value={productItem?.discount}
+                value={productItem?.salePercent}
                 type="number"
                 onChange={(e) =>
                   setProductItem({ ...productItem, discount: e.target.value })
