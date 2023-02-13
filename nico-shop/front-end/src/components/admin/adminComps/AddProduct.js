@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useFetch } from "../../customHooks/useFetch";
 
 export default function AddProduct({
     modalProduct,
@@ -29,20 +30,14 @@ export default function AddProduct({
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  // const {response, error} = useFetch("http://localhost:8080/api/products", {});
+
 
   const onClose = () => {
     setSearchParams({});
     setShow(false);
   };
-
-//   function getData() {
-//     fetch("http://localhost:8080/api/products")
-//       .then((res) => res.json())
-//       .then((data) => {
-//         console.log(data);
-//         setProducts(data.result);
-//       });
-//   }
+    
 
   const onSave = (e) => {
     // e.preventDefault();
@@ -79,7 +74,7 @@ export default function AddProduct({
         formData.append("file", file);
         formData.append("api_key", 528295471864498);
         formData.append("folder", "shop");
-        formData.append("upload_preset", "dauzova4d");
+        formData.append("upload_preset", "xtitxday");
 
         return axios.post(url, formData);
       })

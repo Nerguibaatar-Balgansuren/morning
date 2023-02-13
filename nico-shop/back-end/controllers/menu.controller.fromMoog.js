@@ -14,6 +14,7 @@ exports.getAll = (req, res) => {
         return res.json({ status: true, result: savedData })
     })
 }
+
 exports.get = (req, res) => {
     const { id } = req.params
     fs.readFile(dataFile, "utf-8", (readErr, data) => {
