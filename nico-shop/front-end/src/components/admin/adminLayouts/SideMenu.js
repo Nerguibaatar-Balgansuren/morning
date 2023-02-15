@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function SideMenu() {
   const sideMenuItems = [
@@ -21,11 +22,18 @@ export default function SideMenu() {
       {/* <img src={imgURL} alt="Bootstrap" width="30" height="24"/> */}
       Bootstrap
         </a>
-        {sideMenuItems.map((a) => (
+        {/* {sideMenuItems.map((a) => (
           <a class="nav-link" href={a.link}>
             {a.title}
           </a>
+        ))} */}
+
+        {sideMenuItems.map((a) => (
+          <Link class="nav-link" to={a.link}>
+            {a.title}
+          </Link>
         ))}
+
         {/* <a class="nav-link active" aria-current="page" href="#">
           Active
         </a> */}

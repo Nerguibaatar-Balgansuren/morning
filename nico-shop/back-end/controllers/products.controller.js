@@ -15,15 +15,37 @@ exports.getAll = (request, response) => {
   });
 };
 
+exports.getOne = (request, response) => {
+  const { id } = request.body;
+
+  if (!id)
+    return response.json({ status: false, message: "product id not found" });
+
+  fs.readFile(dataFile, "utf-8", (readErr, data) => {
+    if (readErr) {
+      return response.json({ status: false, message: readErr });
+    }
+
+    const savedData = data ? JSON.parse(data) : [];
+
+    return response.json({
+      status: true,
+      result: savedData.find((userItem) => userItem.id == id),
+    });
+  });
+};
+
 exports.create = (request, response) => {
-  const { productName,
+  const {
+    productName,
     categoryId,
     price,
     thumbImage,
     images,
     salePercent,
     quantity,
-    description,  } = request.body;
+    description,
+  } = request.body;
   fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
@@ -31,14 +53,17 @@ exports.create = (request, response) => {
 
     const parsedData = data ? JSON.parse(data) : [];
 
-    const newObj = { id: uuid.v4(), productName,
+    const newObj = {
+      id: uuid.v4(),
+      productName,
       categoryId,
       price,
       thumbImage,
       images,
       salePercent,
       quantity,
-      description,  };
+      description,
+    };
 
     parsedData.push(newObj);
 
@@ -52,20 +77,47 @@ exports.create = (request, response) => {
   });
 };
 
-exports.update = (req, res) => {
-  const { id, menuName, link, position } = request.body;
+exports.update = (request, response) => {
+  const { id } = request.params;
+  const {
+    productName,
+    categoryId,
+    price,
+    thumbImage,
+    images,
+    salePercent,
+    quantity,
+    brandId,
+    desc,
+  } = request.body;
+
+  if (!id)
+    return response.json({ status: false, message: "product id not found" });
+
   fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });
     }
 
-    const parsedData = data ? JSON.parse(data) : [];
+    const parsedData = JSON.parse(data);
 
-    const updateData = parsedData.map((menuObj) => {
-      if (menuObj.id == id) {
-        return { ...menuObj, menuName, link, position };
+    const updateData = parsedData.map((userObj) => {
+      if (userObj.id == id) {
+        return {
+          ...userObj,
+          productName,
+          categoryId,
+          price,
+          thumbImage,
+          images,
+          salePercent,
+          quantity,
+          brandId,
+          desc,
+          updateDate: Date.now(),
+        };
       } else {
-        return menuObj;
+        return userObj;
       }
     });
 
@@ -74,13 +126,17 @@ exports.update = (req, res) => {
         return response.json({ status: false, message: writeErr });
       }
 
-      return response.json({ status: true, result: updateData });
+      return response.json({ status: true, message: "Амжилттай засагдлаа" });
     });
   });
 };
 
 exports.delete = (req, res) => {
   const { id } = request.params;
+
+  if (!id)
+    return response.json({ status: false, message: "product id not found" });
+    
   fs.readFile(dataFile, "utf-8", (readErr, data) => {
     if (readErr) {
       return response.json({ status: false, message: readErr });

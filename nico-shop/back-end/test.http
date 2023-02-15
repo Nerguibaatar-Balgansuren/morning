@@ -12,3 +12,10 @@ PUT http://localhost:8080/api/menu
 
 ###
 DELETE http://localhost:8080/api/menu
+
+###
+GET http://localhost:8080/api/products
+
+###
+DELETE http://localhost:8080/api/products
+
