@@ -3,8 +3,9 @@ import { Form } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../customHooks/useFetch";
+import Products from "../../Products";
 
-export default function AddProduct({
+export default function   AddProduct({
     modalProduct,
   setModalProduct,
   searchParams,
@@ -138,7 +139,7 @@ export default function AddProduct({
                 value={productItem?.salePercent}
                 type="number"
                 onChange={(e) =>
-                  setProductItem({ ...productItem, discount: e.target.value })
+                  setProductItem({ ...productItem, salePercent: e.target.value })
                 }
               ></input>
             </div>
@@ -228,6 +229,7 @@ export default function AddProduct({
               onClick={() => {
                 onSave();
                 // setModalProduct(false);
+                navigate("admin/products");
               }}
               className="btn btn-primary"
             >

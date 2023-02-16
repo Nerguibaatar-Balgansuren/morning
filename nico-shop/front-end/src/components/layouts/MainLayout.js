@@ -58,7 +58,7 @@ export default function MainLayout() {
     if(loginUser.length > 0 ) {
         setShowModal(false);
         setUser(loginUser[0]);
-        navigate("/admin")
+        // navigate("/admin")
 
     } else {
       alert(`user not found`);

@@ -10,15 +10,18 @@ import Products from "./components/Products";
 import Users from "./components/admin/adminComps/Users";
 import AdminLayout from "./components/admin/AdminLayout";
 import AddProduct from "./components/admin/adminComps/AddProduct";
-import { DataContext, CategoryContext } from "./components/context/context";
+import { DataContext, CategoryContext, CurrentUser } from "./components/context/context";
 
 function App() {
   const [data, setData] = useState();
   const [categoryData, setCategory] = useState();
   const [filterData, setFilterData] = useState();
+  const [currentUser, setCurrentUser] = useState();
+
 
   return (
     <div className="App">
+      <CurrentUser.Provider value={{ setCurrentUser, currentUser }}>
       <DataContext.Provider
         value={{ data, setData, filterData, setFilterData }}
       >
@@ -49,6 +52,7 @@ function App() {
           </Routes>
         </CategoryContext.Provider>
       </DataContext.Provider>
+      </CurrentUser.Provider>
     </div>
   );
 }
