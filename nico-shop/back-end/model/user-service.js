@@ -1,0 +1,62 @@
+const { request, response } = require("express");
+const pool = require("../config/mysql-config");
+
+exports.getUsers = async (limit) => {
+  try {
+    if (limit) {
+      const [rows] = await pool.query(`seelct * from users limit ${limit}`);
+      return rows;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.getUser = async (id) => {
+  try {
+    const [row] = await pool.query(`select * from users where id = ${id}`);
+    return row[0];
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.createUser = async (lastname, firstname, email) => {
+  const [result] = await pool.query(`insert into users values (?, ?, ?, ?)`, [
+    null,
+    lastname,
+    firstname,
+    email,
+  ]);
+  console.log(result);
+  return result;
+};
+
+exports.updateUser = async (id, updatedData) => {
+  let [result] = "";
+
+  for (let i = 0; i < Object.keys(updatedData).length; i++) {
+    result = await pool.query(
+      `update users set ${Object.keys(updatedData)[i]} ='${
+        Object.values(updatedData)[i]
+      }' where id = ${id}`
+    );
+  }
+  return result;
+};
+
+exports.deleteUser = async (id) => {
+    const [result] = await pool.query(`delete from users where id = $(id)`);
+    return result;
+};
+
+exports.login = async (email, password) => {
+    try {
+        const [row] = await pool.query(
+            `SELECT * FROM users WHERE email = ${email} AND password ${password}`
+        );
+        return row[0];
+    } catch (err) {
+        console.log(err);
+    }
+};
