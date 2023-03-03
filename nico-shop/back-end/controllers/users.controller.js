@@ -139,9 +139,22 @@ exports.login = async (request, response) => {
     });
 
     try {
-      const encryptPassword = await bcrypt.hash(password, saltRounds);
+      if (email == parsedData[i].email) {
+        const decrypt = await bcrypt.compare(
+          password + myKey,
+          parsedData[i].password
+        );
+        if (decrypt) {
+          user = {
+            id: parsedData[i].id,
+            email: parsedData[i].email,
+            lastname: parsedData[i].lastname,
+            firstname: parsedData[i].firstname,
+          };
+        }
+      }
 
-      const result = await userService.login(email, encryptPassword);
+      const result = await userService.login(email, password);
 
       response.json({ status: true, result});
     } catch (err) {
