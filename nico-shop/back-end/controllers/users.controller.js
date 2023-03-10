@@ -1,11 +1,11 @@
 const { response } = require("express");
 const fs = require("fs");
+const bcrypt = require("bcrypt");
 const { request } = require("http");
 const uuid = require("uuid");
 
 const dataFile = process.cwd() + "/data/users.json";
-
-
+const userService = require('../model/user-service')
 
 exports.getAll = async (request, response) => {
   const {limit} = request.query;
@@ -14,6 +14,9 @@ exports.getAll = async (request, response) => {
 
     if (result && result.length > 0) {
       response.json({status: true, result});
+    }
+    else if (result && result.length == 0) {
+      response.json({status: true, message: "no result to show", result});
     }
   } catch (err) {
     console.log(err);

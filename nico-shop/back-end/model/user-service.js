@@ -4,7 +4,7 @@ const pool = require("../config/mysql-config");
 exports.getUsers = async (limit) => {
   try {
     if (limit) {
-      const [rows] = await pool.query(`seelct * from users limit ${limit}`);
+      const [rows] = await pool.query(`select * from users limit ${limit}`);
       return rows;
     }
   } catch (err) {
