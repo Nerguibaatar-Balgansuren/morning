@@ -5,39 +5,24 @@ const { request } = require("http");
 const uuid = require("uuid");
 
 const dataFile = process.cwd() + "/data/users.json";
-const userService = require('../model/user-service-for-mongodb')
+const userService = require('../model/user-service')
 
-const Users = require('../model/user-service-for-mongodb');
+exports.getAll = async (request, response) => {
+  const {limit} = request.query;
+  try {
+    const result = await userService.getUsers(limit);
 
-exports.getAll = async (req, res) => {
-  const a = await Users.find();
-  console.log(a);
-  res.json({ message: "Test", result: a });
+    if (result && result.length > 0) {
+      response.json({status: true, result});
+    }
+    else if (result && result.length == 0) {
+      response.json({status: true, message: "no result to show", result});
+    }
+  } catch (err) {
+    console.log(err);
+    response.json({ status: false, message:err});
+  }
 };
-
-exports.create = async (request, response) => {
-  const obj = { name: request.body.name, email: request.body.email, password: request.body.password };
-  const a = await Users.create(obj);
-  console.log(a);
-  res.json({ message: "Test", result: a });
-};
-
-// exports.getAll = async (request, response) => {
-//   const {limit} = request.query;
-//   try {
-//     const result = await userService.getUsers(limit);
-
-//     if (result && result.length > 0) {
-//       response.json({status: true, result});
-//     }
-//     else if (result && result.length == 0) {
-//       response.json({status: true, message: "no result to show", result});
-//     }
-//   } catch (err) {
-//     console.log(err);
-//     response.json({ status: false, message:err});
-//   }
-// };
 
 exports.getOne = async (request, response) => {
   const {id} = request.params;
@@ -53,27 +38,27 @@ exports.getOne = async (request, response) => {
   }
 };
 
-// exports.create = async (request, response) => {
-//   const { firstname, lastname, username, password, email } = request.body;
+exports.create = async (request, response) => {
+  const { firstname, lastname, username, password, email } = request.body;
  
-//   const newObj = {
-//     firstname,
-//     lastname,
-//     email,
-//   };
+  const newObj = {
+    firstname,
+    lastname,
+    email,
+  };
 
-//   try {
-//     const result = await userService.creatUser(newObj);
-//     console.log(result);
-//     if(result && result.affectedRows > 0) {
-//       response.json({ status: true, message: "Success"});
-//     } else {
-//       response.json({ status: false, message: "Error"});
-//     }
-//   } catch (err) {
-//     response.json({status: false, message: err});
-//   }
-// };
+  try {
+    const result = await userService.creatUser(newObj);
+    console.log(result);
+    if(result && result.affectedRows > 0) {
+      response.json({ status: true, message: "Success"});
+    } else {
+      response.json({ status: false, message: "Error"});
+    }
+  } catch (err) {
+    response.json({status: false, message: err});
+  }
+};
 
 exports.update = async (request, response) => {
   const {id} = request.params;
