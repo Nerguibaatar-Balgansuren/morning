@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const myKey = "123456789!@#$&*";
 
-const userService = require('../model/user-service')
+const userService = require('../model/user-service-for-mongodb')
 const dataFile = process.cwd() + "/data/users.json"
 
 exports.getAll = async (req, res) => {

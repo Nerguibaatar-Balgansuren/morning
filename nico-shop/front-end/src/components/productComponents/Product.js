@@ -6,6 +6,15 @@ import { DataContext } from "../context/context";
 export const Product = () => {
   const { filterData } = useContext(DataContext);
 
+  function getData() {
+    fetch("http://localhost:8000/api/products")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setProducts(data.result);
+      });
+  }
+
   return (
     <>
       <span>Product</span>

@@ -3,12 +3,6 @@ const { default: mongoose } = require("mongoose");
 
 const usersSchema = new mongoose.Schema(
   {
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-    },
     firstname: {
       type: String,
       required: true,
@@ -30,7 +24,6 @@ const usersSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-      trim: true,
     },
     role: {
       type: String,

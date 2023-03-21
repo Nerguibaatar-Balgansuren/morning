@@ -1,13 +1,15 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const port = 8080;
-const MONGO_CONNECTION_STRING = "mongodb+srv://Nico:5tHFtrMLbYtbIz1V@cluster0.vwz7h2n.mongodb.net/?retryWrites=true&w=majority";
 const cors = require("cors");
 const app = express();
 const fs = require("fs");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 mongoose
-    .connect(MONGO_CONNECTION_STRING)
+    .connect(process.env.MONGODB_URI)
     .then(() => console.log("Connected to MongoDB"))
     .catch((err) => console.log(err));
 
@@ -28,7 +30,7 @@ app.use("/api", productsRouter);
 
 
 app.get("api", (req, res) => {
-    res.json({ message: "Welcome Rest API" });
+    res.json({ message: "Welcome to Rest API" });
 });
 
 app.listen(port, () => console.log(`server is running on ${port}`));

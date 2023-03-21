@@ -5,7 +5,7 @@ const { request } = require("http");
 const uuid = require("uuid");
 
 const dataFile = process.cwd() + "/data/users.json";
-const userService = require('../model/user-service')
+const userService = require('../model/user-service-for-mongodb')
 
 exports.getAll = async (request, response) => {
   const {limit} = request.query;
