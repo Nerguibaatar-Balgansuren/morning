@@ -1,7 +1,8 @@
 const express = require("express");
 
 const router = express.Router();
-const users = require("../controllers/users.controller.js");
+const users = require("../controllers/users.controllers.forMongo.js");
+const auth = require("../middleware/auth");
 
 router.get("/users", users.getAll);
 router.post("/users", users.create);
