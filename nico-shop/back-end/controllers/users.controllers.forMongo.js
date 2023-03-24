@@ -57,10 +57,12 @@ exports.getAll = async (req, res) => {
 };
 
 exports.create = async (request, response) => {
+  console.log("TEST");
+  console.log(request.body);
   const obj = { firstname: request.body.firstname, lastname: request.body.firstname, email: request.body.email, password: request.body.password };
   const a = await userModel.create(obj);
   console.log(a);
-  res.json({ message: "Test", result: a });
+  response.json({ message: "Test", result: a });
 };
 
 // exports.getAll = async (request, response) => {

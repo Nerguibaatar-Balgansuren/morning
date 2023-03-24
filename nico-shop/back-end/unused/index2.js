@@ -6,11 +6,11 @@ const cors = require("cors");
 const app = express();
 const fs = require("fs");
 
-const menuRouter = require("./routes/menu.route.js");
-const productsRouter = require("./routes/products.route.js");
+const menuRouter = require("../routes/menu.route.js");
+const productsRouter = require("../routes/products.route.js");
 
 // const catRouter = require("./routes/cat.route.js");
-const usersRouter = require("./routes/users.route");
+const usersRouter = require("../routes/users.route");
 const { request } = require("express");
 
 app.use(cors());

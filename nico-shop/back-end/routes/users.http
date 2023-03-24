@@ -1,12 +1,12 @@
 ###
 
-POST http://localhost:8080/api/user
+POST http://localhost:8080/api/users
 Content-Type: application/json
 
 {
   "firstname": "Nico",
   "lastname": "Bal",
-  "email":"nico@nico.com",
+  "email":"nico2@nico.com",
   "password":"nico"
 }
 
