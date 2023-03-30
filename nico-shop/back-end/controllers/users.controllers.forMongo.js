@@ -1,28 +1,31 @@
 const { response } = require("express");
 const fs = require("fs");
 const bcrypt = require("bcrypt");
+const saltRounds = 5;
 const { request } = require("http");
 const uuid = require("uuid");
 const jwt = require("jsonwebtoken");
+// const asyncMiddleware = require('../middleware/asyncmiddleware');
 
 // const dataFile = process.cwd() + "/data/users.json";
 
 const userModel = require('../model/user.model.formongo');
 
 exports.register = async (req, res) => {
-  const { email, password } = req.body;
-
-  if (!email || !password) {
+  const obj = { firstname: req.body.firstname, lastname: req.body.firstname, email: req.body.email, password: req.body.password };
+  if (!obj.email || !obj.password || !obj.firstname || !obj.lastname) {
     res
       .status(500)
       .send({ status: false, message: "Medeelelee buren oruulna uu" });
     return;
   }
 
-  const hashedPass = await bcrypt.hash(password, 10);
+  const hashedPass = await bcrypt.hash(obj.password, 10);
   if (hashedPass) {
     const newUser = new userModel({
-      email,
+      firstname: obj.firstname,
+      lastname: obj.lastname,
+      email: obj.email,
       password: hashedPass,
     });
 
@@ -64,6 +67,27 @@ exports.create = async (request, response) => {
   console.log(a);
   response.json({ message: "Test", result: a });
 };
+
+// const login = async (req, res) => {
+//   const { email, password } = req.body;
+//   if (!email || !password) {
+//     throw new Error("Please provide both email and password.");
+//   }
+
+//   const user = await userModel.findOne({ email });
+
+//   if (user && (await bcrypt.compare(password, user.password))) {
+//     const token = jwt.sign({ user }, process.env.TOKEN_KEY, {
+//       expiresIn: "2h",
+//     });
+
+//     res.send({ success: true, data: user, message: "Login successful.", token });
+//   } else {
+//     throw new Error("Invalid email or password.");
+//   }
+// };
+
+// module.exports = asyncMiddleware(login);
 
 // exports.getAll = async (request, response) => {
 //   const {limit} = request.query;
@@ -190,34 +214,57 @@ exports.delete = async (request, response) => {
   }
 };
 
+// exports.login = async (req, res) => {
+//   const { email, password } = req.body;
+//   if (!email || !password) {
+//     res
+//       .status(500)
+//       .send({ status: false, message: "Medeelelee buren oruulna uu" });
+//     return;
+//   }
+
+//   const user = await userModel.findOne({ email });
+
+//   if (user && (await bcrypt.compare(password, user.password))) {
+
+//     const token = jwt.sign({ user: user }, process.env.TOKEN_KEY, {
+//       expiresIn: "2h",
+//       // algorithm: "HS256",
+//     });
+
+
+//     res.status(200).send({ status: true, data: user, message: "Success", token });
+//     return;
+//   } else {
+//     res.status(400).send({
+//       status: false,
+//       message: "user oldsongui ee, nuuts ug taarahgui bna",
+//     });
+//     return;
+//   }
+// };
+
 exports.login = async (req, res) => {
   const { email, password } = req.body;
-
   if (!email || !password) {
-    res
-      .status(500)
-      .send({ status: false, message: "Medeelelee buren oruulna uu" });
-    return;
+    return res
+      .status(400)
+      .send({ success: false, message: "Please provide both email password." });
   }
 
   const user = await userModel.findOne({ email });
 
   if (user && (await bcrypt.compare(password, user.password))) {
-
-    const token = jwt.sign({ user: user }, process.env.TOKEN_KEY, {
+    const token = jwt.sign({ user }, process.env.TOKEN_KEY, {
       expiresIn: "2h",
-      // algorithm: "HS256",
     });
 
-
-    res.status(200).send({ status: true, data: user, message: "Success", token });
-    return;
+    return res.status(200).send({ success: true, data: user, message: "Login successful.", token });
   } else {
-    res.status(400).send({
-      status: false,
-      message: "user oldsongui ee, nuuts ug taarahgui bna",
+    return res.status(400).send({
+      success: false,
+      message: "Invalid email or password.",
     });
-    return;
   }
 };
 

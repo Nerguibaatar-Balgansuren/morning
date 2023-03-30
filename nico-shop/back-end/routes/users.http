@@ -1,30 +1,43 @@
 ###
 
-POST http://localhost:8080/api/users
+POST https://nico-e-commerce.onrender.com/api/users
 Content-Type: application/json
 
 {
   "firstname": "Nico",
-  "lastname": "Bal",
-  "email":"nico2@nico.com",
+  "lastname": "Nice",
+  "email":"nico8@nico.com",
   "password":"nico"
 }
 
 ###
 
-POST http://localhost:8080/api/login
+POST http://localhost:8080/api/users
 Content-Type: application/json
 
 {
-  "email":"Oyuka15@gmail.com",
-  "password":"qweqwe"
+  "firstname": "Nico",
+  "lastname": "Nice",
+  "email":"nico7@nico.com",
+  "password":"nico"
+}
+
+
+###
+
+POST https://nico-e-commerce.onrender.com/api/users/login
+Content-Type: application/json
+
+{
+  "email":"nico6@nico.com",
+  "password":"nico"
 }
 
 ###
 
-POST http://localhost:8080/api/userall
+GET http://localhost:8080/api/users
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0MWE3YWM0ZWY0OTg2MzUyZjk3YzQxZSIsImVtYWlsIjoiT3l1a2ExNUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR6UTZ1b1FrWk5FM09CS05ISjJ1WGZ1L1YvNlZOQlU1NURMajV0NUpPOXp1YnFiYlRSNXczRyIsIl9fdiI6MH0sImlhdCI6MTY3OTQ1NzY0MSwiZXhwIjoxNjc5NDY0ODQxfQ.nt6IQnln5-CLean2P97dCrwQOTzHyYqmPu-P_v90Geo
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0MWQwYzBkMGY3ZDhmNWE5MGEwZTAxYyIsImZpcnN0bmFtZSI6Ik5pY28iLCJsYXN0bmFtZSI6Ik5pY28iLCJlbWFpbCI6Im5pY282QG5pY28uY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkQnFWR2s2T1ZrV0lsUW1PT2dJRHVtdUJ6UUE0REJacEFQaUdTS3diWU5Ed1o5WEE2SW52M0ciLCJyb2xlIjoidXNlciIsImNyZWF0ZWRBdCI6IjIwMjMtMDMtMjRUMDI6MzM6NDkuMzI0WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDMtMjRUMDI6MzM6NDkuMzI0WiIsIl9fdiI6MH0sImlhdCI6MTY4MDA1NDE5NywiZXhwIjoxNjgwMDYxMzk3fQ.rnFX7w2wJVwSDVsZS7fe5LcmOL3fhM1c7h4EjGZeGvw
 
 # {
 #   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0MWE3YWM0ZWY0OTg2MzUyZjk3YzQxZSIsImVtYWlsIjoiT3l1a2ExNUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR6UTZ1b1FrWk5FM09CS05ISjJ1WGZ1L1YvNlZOQlU1NURMajV0NUpPOXp1YnFiYlRSNXczRyIsIl9fdiI6MH0sImlhdCI6MTY3OTQ1NzY0MSwiZXhwIjoxNjc5NDY0ODQxfQ.nt6IQnln5-CLean2P97dCrwQOTzHyYqmPu-P_v90Geo"
