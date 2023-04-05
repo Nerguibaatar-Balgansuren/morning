@@ -1,0 +1,32 @@
+###
+
+POST http://localhost:9000/api/user
+Content-Type: application/json
+
+{
+  "email":"Oyuka15@gmail.com",
+  "password":"qweqwe"
+}
+
+###
+
+POST http://localhost:9000/api/login
+Content-Type: application/json
+
+{
+  "email":"Oyuka15@gmail.com",
+  "password":"qweqwe"
+}
+
+###
+
+POST http://localhost:9000/api/userall
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0MWE3YWM0ZWY0OTg2MzUyZjk3YzQxZSIsImVtYWlsIjoiT3l1a2ExNUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR6UTZ1b1FrWk5FM09CS05ISjJ1WGZ1L1YvNlZOQlU1NURMajV0NUpPOXp1YnFiYlRSNXczRyIsIl9fdiI6MH0sImlhdCI6MTY3OTQ1NzY0MSwiZXhwIjoxNjc5NDY0ODQxfQ.nt6IQnln5-CLean2P97dCrwQOTzHyYqmPu-P_v90Geo
+
+# {
+#   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0MWE3YWM0ZWY0OTg2MzUyZjk3YzQxZSIsImVtYWlsIjoiT3l1a2ExNUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR6UTZ1b1FrWk5FM09CS05ISjJ1WGZ1L1YvNlZOQlU1NURMajV0NUpPOXp1YnFiYlRSNXczRyIsIl9fdiI6MH0sImlhdCI6MTY3OTQ1NzY0MSwiZXhwIjoxNjc5NDY0ODQxfQ.nt6IQnln5-CLean2P97dCrwQOTzHyYqmPu-P_v90Geo"
+# }
+
+
+

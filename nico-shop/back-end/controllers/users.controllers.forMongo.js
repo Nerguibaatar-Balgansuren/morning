@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 
 // const dataFile = process.cwd() + "/data/users.json";
 
-const userModel = require('../model/user.model.formongo');
+const userModel = require('../models/user.model.formongo');
 
 exports.register = async (req, res) => {
   const obj = { firstname: req.body.firstname, lastname: req.body.firstname, email: req.body.email, password: req.body.password };
